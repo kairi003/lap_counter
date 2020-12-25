@@ -12,9 +12,9 @@ body {
   min-height: 100%;
   padding-top: 1px;
   box-sizing: border-box;
-  font-family: "Consolas", "Courier New", "Courier", "Monaco", monospace;
   line-height: 1.2;
 }
+
 
 main {
   text-align: center;
@@ -43,18 +43,20 @@ button:active {
 #counter {
   box-sizing: content-box;
   font-size: 7rem;
-  line-height: 1.2em;
-  min-height: 1.2em;
-  overflow-y: hidden;
 }
 
 #counter.minus {
   color: #fa6868;
 }
 
+.monospace {
+  font-family: "Consolas", "Courier New", "Courier", "Monaco", monospace;
+  height: 1.2em;
+  overflow-y: hidden;
+}
+
 #time {
   font-size: 2rem;
-  min-height: 1.2em;
 }
 
 #controls {

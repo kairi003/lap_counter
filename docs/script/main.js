@@ -17,28 +17,28 @@ const setCount = (count) => {
   loadCount();
 }
 
-window.addEventListener('load', e => {
+window.addEventListener('DOMContentLoaded', e => {
   if (!localStorage['count']) localStorage['count'] = 0;
   if (!localStorage['time']) localStorage['time'] = Date.now();
   loadCount();
-});
 
-document.getElementById('add').addEventListener('click', e => addCount(+1));
-document.getElementById('sub').addEventListener('click', e => addCount(-1));
-document.getElementById('set').addEventListener('click', e => {
-  const count = parseInt(prompt('Set count to: ')) || 0;
-  setCount(count);
-});
-document.getElementById('reset').addEventListener('click', e => {
-  if (confirm('Reset Count?')) setCount(0);
-});
+  document.getElementById('add').addEventListener('click', e => addCount(+1));
+  document.getElementById('sub').addEventListener('click', e => addCount(-1));
+  document.getElementById('set').addEventListener('click', e => {
+    const count = parseInt(prompt('Set count to: ')) || 0;
+    setCount(count);
+  });
+  document.getElementById('reset').addEventListener('click', e => {
+    if (confirm('Reset Count?')) setCount(0);
+  });
 
-setInterval(()=>{
-  const time = +localStorage['time'];
-  let ss = Math.floor((Date.now() - time) / 1000);
-  let hh = Math.floor(ss / 3600);
-  ss %= 3600;
-  let mm = Math.floor(ss / 60).toString().padStart(2,0);
-  ss = (ss % 60).toString().padStart(2,0);
-  document.getElementById('time').textContent = `${hh}:${mm}:${ss}`
-}, 100);
+  setInterval(() => {
+    const time = +localStorage['time'];
+    let ss = Math.floor((Date.now() - time) / 1000);
+    let hh = Math.floor(ss / 3600);
+    ss %= 3600;
+    let mm = Math.floor(ss / 60).toString().padStart(2, 0);
+    ss = (ss % 60).toString().padStart(2, 0);
+    document.getElementById('time').textContent = `${hh}:${mm}:${ss}`
+  }, 100);
+});
